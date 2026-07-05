@@ -1,0 +1,34 @@
+[
+  {
+    "version": "1.0.2",
+    "fecha": "2026-07-05",
+    "url_descarga": "https://github.com/weblocalstudio/Skrynix/releases/download/V1.0.2/Skrynix_Instalador_V1.0.2.dmg",
+    "novedades": [
+      "Grabación de voz (micrófono) integrada y sincronizada.",
+      "Nueva interfaz flotante tipo pastilla (NSPanel) con soporte para pantalla completa.",
+      "Temporizador e indicador de tiempo de grabación en tiempo real.",
+      "Corrección del sistema de pausa para evitar desincronizaciones."
+    ]
+  },
+  {
+    "version": "1.0.1",
+    "fecha": "2026-07-04",
+    "url_descarga": "https://github.com/weblocalstudio/Skrynix/releases/download/V1.0.1/Skrynix_Instalador_V1.0.1.dmg",
+    "novedades": [
+      "Corrección de errores menores en la exportación de archivos de vídeo.",
+      "Optimización en el consumo de CPU durante la captura de pantalla.",
+      "Estabilización del renderizado de la interfaz gráfica principal."
+    ]
+  },
+  {
+    "version": "1.0.0",
+    "fecha": "2026-07-02",
+    "url_descarga": "https://github.com/weblocalstudio/Skrynix/releases/download/V1.0.0/Skrynix_Instalador_V1.0.0.dmg",
+    "novedades": [
+      "Lanzamiento inicial de Skrynix.",
+      "Captura de vídeo de pantalla nativa mediante ScreenCaptureKit.",
+      "Grabación del audio interno del sistema.",
+      "Guardado automático en formato compatible con macOS."
+    ]
+  }
+]
