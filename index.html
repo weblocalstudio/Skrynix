@@ -30,10 +30,19 @@
         <div class="container hero-content">
             <h1>Grabación de pantalla nativa y ultra fluida para macOS</h1>
             <p>Captura video en 4K/Retina, audio interno del sistema y micrófono simultáneamente con un impacto mínimo en tu procesador. Diseñado exclusivamente con Swift 6 y ScreenCaptureKit.</p>
+            
             <div class="hero-buttons">
-                <a href="https://github.com/weblocalstudio/Skrynix/releases/download/V1.0.2/Skrynix_Instalador_V1.0.2.dmg" class="btn-primary">Descargar v1.0.2 para Mac</a>
+                <a id="btn-main-download" href="https://github.com/weblocalstudio/Skrynix/releases/" class="btn-primary">Cargando última versión...</a>
+                <button id="btn-toggle-history" class="btn-outline" onclick="toggleHistory()">Versiones anteriores</button>
             </div>
             <p class="system-req">Requiere macOS 15.0 o superior (Optimizado para Apple Silicon e Intel)</p>
+
+            <div id="history-box" class="history-section">
+                <h3 class="history-title">Historial de Versiones</h3>
+                <div id="history-content">
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Cargando historial...</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -72,5 +81,69 @@
         </div>
     </footer>
 
+    <script>
+        const jsonUrl = "novedades.json";
+
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch(jsonUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.length > 0) {
+                        // 1. Configurar botón principal (v1.0.3)
+                        const ultimaVersion = data[0];
+                        const btnDownload = document.getElementById("btn-main-download");
+                        btnDownload.href = ultimaVersion.url_descarga;
+                        btnDownload.innerText = `Descargar v${ultimaVersion.version} para Mac`;
+
+                        // 2. Construir el contenedor secundario con el resto de versiones
+                        const historyContent = document.getElementById("history-content");
+                        const versionesAnteriores = data.slice(1);
+
+                        if (versionesAnteriores.length === 0) {
+                            historyContent.innerHTML = "<p style='color: var(--text-muted); font-size: 0.9rem;'>No hay versiones anteriores disponibles.</p>";
+                            return;
+                        }
+
+                        let htmlAcumulado = "";
+                        versionesAnteriores.forEach(v => {
+                            // Validar que existan novedades y procesarlas limpiamente
+                            let novedadesHtml = "";
+                            if (v.novedades && Array.isArray(v.novedades)) {
+                                novedadesHtml = v.novedades.map(item => `<li>• ${item}</li>`).join("");
+                            }
+
+                            htmlAcumulado += `
+                                <div class="version-item">
+                                    <div class="version-header">
+                                        <span class="version-badge">v${v.version}</span>
+                                        <span class="version-date">${v.fecha}</span>
+                                    </div>
+                                    <ul class="version-list">
+                                        ${novedadesHtml}
+                                    </ul>
+                                    <a href="${v.url_descarga}" class="btn-secondary" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">Descargar .DMG</a>
+                                </div>
+                            `;
+                        });
+                        historyContent.innerHTML = htmlAcumulado;
+                    }
+                })
+                .catch(err => {
+                    console.error("Error cargando el JSON de novedades:", err);
+                    document.getElementById("btn-main-download").innerText = "Descargar para Mac";
+                    document.getElementById("history-content").innerHTML = "<p style='color: var(--text-muted); font-size: 0.9rem;'>No se pudo cargar el historial en este momento.</p>";
+                });
+        });
+
+        function toggleHistory() {
+            const box = document.getElementById("history-box");
+            if (box.style.display === "block") {
+                box.style.display = "none";
+            } else {
+                box.style.display = "block";
+                setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+            }
+        }
+    </script>
 </body>
 </html>
