@@ -1,8 +1,20 @@
 [
   {
+    "version": "1.0.4",
+    "fecha": "2026-07-05",
+    "url_descarga": "https://github.com/weblocalstudio/Skrynix/releases/download/v1.0.4/Skrynix_Instalador_V1.0.4.dmg",
+    "novedades": [
+      "Codificación a 60 FPS estables con procesamiento en tiempo real nativo (VideoToolbox).",
+      "Escalado dinámico e inteligente para pantallas 4K y Retina para reducir un 50% la carga de la GPU.",
+      "Compresión HEVC optimizada con bitrate variable para ahorrar espacio en disco sin perder nitidez.",
+      "Calibración de buffers de memoria para eliminar saltos de fotogramas y mejorar la sincronización de audio."
+    ]
+
+  },
+  {
     "version": "1.0.3",
     "fecha": "2026-07-05",
-    "url_descarga": "https://github.com/weblocalstudio/Skrynix/releases/download/v1.0.3/Skrynix_Instalador_v1.0.3.dmg",
+    "url_descarga": "https://github.com/weblocalstudio/Skrynix/releases/download/v1.0.3/Skrynix_Instalador_V1.0.3.dmg",
     "novedades": [
       "Optimización del sistema de etiquetas (Tags) para un correcto ordenamiento en el historial.",
       "Correcciones menores en la interfaz gráfica y mejoras de estabilidad general."
