@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Página no encontrada | Skrynix</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <style>
+        /* Variables globales e independientes */
+        :root {
+            --bg-color: #0b0f19;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent: #06b6d4;
+            --accent-hover: #0891b2;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        /* Reset para evitar fallos de renderizado */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-stack);
+            line-height: 1.5;
+            overflow-x: hidden;
+            background: radial-gradient(circle at center, rgba(6, 182, 212, 0.1) 0%, #0b0f19 80%);
+        }
+
+        /* Contenedor principal responsive (sin flex/grid raros para máxima compatibilidad) */
+        .error-wrapper {
+            display: block;
+            width: 100%;
+            min-height: 100vh;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* Bloque central de contenido */
+        .error-content {
+            display: block;
+            max-width: 500px;
+            width: 100%;
+            margin: 12vh auto 0 auto; /* Empuja el contenido hacia el centro verticalmente */
+            padding: 20px;
+        }
+
+        /* Número 404 gigante */
+        .error-code {
+            font-size: clamp(5rem, 18vw, 8rem); /* Se autoajusta perfectamente según la pantalla */
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+        }
+
+        /* Título del error */
+        .error-title {
+            font-size: clamp(1.4rem, 5vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Texto de descripción */
+        .error-description {
+            font-size: clamp(0.95rem, 3.5vw, 1.1rem);
+            color: black;
+            margin-bottom: 35px;
+            padding: 0 10px;
+        }
+
+        /* Botón de retorno totalmente seguro en móvil */
+        .btn-back {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #000000;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.2);
+            transition: all 0.2s ease;
+            width: auto;
+            max-width: 100%;
+        }
+
+        .btn-back:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-back:active {
+            transform: translateY(0);
+        }
+
+        /* Optimización extrema para pantallas muy pequeñas (móviles antiguos o vista horizontal) */
+        @media (max-height: 500px) {
+            .error-content {
+                margin-top: 2vh;
+            }
+            .error-description {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="error-wrapper">
+        <div class="error-content">
+            <h1 class="error-code">404</h1>
+            <h2 class="error-title">¡Corte de escena!</h2>
+            <p class="error-description">La página que estás buscando se ha salido del encuadre o nunca llegó a grabarse.</p>
+            <a href="/" class="btn-back">Volver al Inicio</a>
+        </div>
+    </main>
+
+</body>
+</html>
